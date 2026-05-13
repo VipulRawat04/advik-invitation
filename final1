@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Advik's 1 Month Magical Celebration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#001529;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;padding:24px 12px;font-family:'Quicksand',sans-serif;}
+.card{width:100%;max-width:420px;background:#ffffff;border-radius:28px;overflow:hidden;border:3px solid #ff0000;box-shadow:0 12px 60px rgba(0,0,0,0.6);}
+
+/* ── MAGIC BANNER ── */
+.banner{position:relative;height:340px;overflow:hidden;background:#003366;}
+
+.title-block{position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;align-items:center;padding:18px 16px 0;z-index:20;pointer-events:none;}
+.eyebrow{font-family:'Fredoka One',cursive;font-size:11px;letter-spacing:4px;color:#ffd700;text-transform:uppercase;}
+.hero-name{font-family:'Fredoka One',cursive;font-size:54px;line-height:.92;text-transform:uppercase;color:#fff;text-shadow:0 3px 0 #ff0000,0 6px 18px rgba(0,0,0,0.4);text-align:center;}
+.hero-name span{color:#ffd700;}
+.hero-sub{font-family:'Fredoka One',cursive;font-size:14px;letter-spacing:3px;color:#fff;text-transform:uppercase;margin-top:5px;}
+.month-badge{background:#ff0000;color:#fff;font-family:'Fredoka One',cursive;font-size:14px;padding:4px 20px;border-radius:30px;margin-top:8px;display:inline-block;letter-spacing:1px;}
+
+/* ── BODY ── */
+.body{padding:1.2rem 1.4rem 1rem;background:#fff;}
+.invite-lbl{font-family:'Fredoka One',cursive;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#003366;text-align:center;margin-bottom:1.5rem;}
+
+/* detail cards */
+.dg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:1rem;}
+.dc{background:#f8f9fa;border:2px solid #e0e0e0;border-radius:16px;padding:10px 12px;display:flex;align-items:flex-start;gap:9px;}
+.dc.full{grid-column:1/-1;}
+.dic{width:32px;height:32px;background:#003366;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dic svg{width:16px;height:16px;stroke:#ffd700;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.dl{font-family:'Fredoka One',cursive;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#777;display:block;margin-bottom:1px;}
+.dv{font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;color:#003366;display:block;line-height:1.3;}
+.ds{font-family:'Quicksand',sans-serif;font-size:11px;font-weight:500;color:#999;display:block;}
+
+/* hosts */
+.hosts{text-align:center;padding:.8rem 0;border-top:2px dashed #ff0000;border-bottom:2px dashed #ff0000;margin-bottom:1.2rem;}
+.hl{font-family:'Fredoka One',cursive;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#777;}
+.hn{font-family:'Fredoka One',cursive;font-size:20px;color:#ff0000;letter-spacing:.5px;}
+
+/* rsvp box */
+.rbox{background:#fcfcfc;border:2px solid #003366;border-radius:18px;padding:1rem 1.2rem;}
+.rh{display:flex;align-items:center;gap:7px;margin-bottom:.8rem;}
+.rt{font-family:'Fredoka One',cursive;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:#003366;}
+.rb{margin-left:auto;background:#ffd700;color:#003366;font-family:'Fredoka One',cursive;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;text-transform:uppercase;}
+
+.field-wrap{margin-bottom:12px;}
+.field-lbl{font-family:'Fredoka One',cursive;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#003366;display:block;margin-bottom:5px;}
+#rsvp-form input[type=text]{width:100%;background:#fff;border:2px solid #e0e0e0;border-radius:12px;color:#003366;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;padding:10px 14px;outline:none;}
+
+.stepper{display:flex;align-items:center;background:#fff;border:2px solid #e0e0e0;border-radius:12px;overflow:hidden;width:fit-content;}
+.step-btn{background:none;border:none;width:42px;height:42px;font-size:22px;color:#003366;cursor:pointer;font-family:'Fredoka One',cursive;}
+#guest-count{font-family:'Fredoka One',cursive;font-size:20px;color:#003366;min-width:38px;text-align:center;}
+
+.attend-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;}
+.att-btn{background:#fff;border:2px solid #e0e0e0;border-radius:12px;padding:10px 8px;font-family:'Fredoka One',cursive;font-size:12px;color:#003366;cursor:pointer;transition:all .18s;}
+.att-btn.selected{background:#003366;color:#fff;border-color:#003366;}
+.att-no{grid-column:1/-1;}
+.att-btn.selected-no{background:#ff0000;color:#fff;border-color:#ff0000;}
+
+.wa-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#25D366;border:none;border-radius:14px;color:#fff;font-family:'Fredoka One',cursive;font-size:17px;letter-spacing:2px;text-transform:uppercase;padding:14px;cursor:pointer;margin-top:10px;}
+.field-err{font-family:'Quicksand',sans-serif;font-size:11px;color:#ff0000;font-weight:700;display:none;margin-top:3px;}
+.field-err.show{display:block;}
+
+.footer{background:#001529;padding:12px 1.6rem;display:flex;align-items:center;justify-content:center;gap:10px;}
+.ft{font-family:'Fredoka One',cursive;font-size:10px;letter-spacing:3px;color:#ffd700;text-transform:uppercase;white-space:nowrap;}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <!-- ══ MAGIC BANNER ══ -->
+  <div class="banner">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#001a33"/>
+          <stop offset="100%" stop-color="#004080"/>
+        </linearGradient>
+      </defs>
+      <rect width="420" height="340" fill="url(#skyG)"/>
+
+      <!-- Magical Castle Silhouette -->
+      <g fill="#001529" opacity="0.6">
+        <rect x="140" y="210" width="140" height="130" />
+        <rect x="195" y="140" width="30" height="70" />
+        <polygon points="185,145 210,80 235,145" />
+        <rect x="150" y="170" width="15" height="40" />
+        <polygon points="145,170 157.5,130 170,170" />
+        <rect x="255" y="170" width="15" height="40" />
+        <polygon points="250,170 262.5,130 275,170" />
+      </g>
+
+      <!-- Hidden Mickey Logo -->
+      <g fill="#ff0000" transform="translate(185, 275)">
+        <circle cx="25" cy="25" r="22" />
+        <circle cx="2" cy="5" r="13" />
+        <circle cx="48" cy="5" r="13" />
+      </g>
+
+      <!-- Animated Stars -->
+      <circle cx="60" cy="60" r="1.5" fill="#fff"><animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite" /></circle>
+      <circle cx="350" cy="100" r="2" fill="#ffd700"><animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite" /></circle>
+      <circle cx="210" cy="50" r="1.2" fill="#fff"><animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite" /></circle>
+    </svg>
+
+    <div class="title-block">
+      <div class="eyebrow">A Magical World For</div>
+      <div class="hero-name">ADVIK<br><span>RAWAT</span></div>
+      <div class="hero-sub">Where Dreams Begin</div>
+      <div class="month-badge">1 Month Celebration</div>
+    </div>
+  </div>
+
+  <div style="background:#ffd700;height:10px;position:relative; z-index: 5;">
+    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:22px;">✨</div>
+  </div>
+
+  <!-- ── BODY ── -->
+  <div class="body">
+    <div class="invite-lbl">Join us for a magical afternoon as we celebrate one wonderful month!</div>
+
+    <div class="dg">
+      <div class="dc">
+        <div class="dic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div><span class="dl">Date</span><span class="dv">31 May 2026</span><span class="ds">Sunday</span></div>
+      </div>
+      <div class="dc">
+        <div class="dic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><span class="dl">Time</span><span class="dv">2:00 – 5:00 PM</span><span class="ds">Afternoon</span></div>
+      </div>
+      <div class="dc full">
+        <div class="dic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><span class="dl">Venue</span><span class="dv">Paradise Sandringham</span><span class="ds">Auckland, New Zealand</span></div>
+      </div>
+    </div>
+
+    <div class="hosts">
+      <div class="hl">Magical Hosts</div>
+      <div class="hn">Vipul Rawat &amp; Divya Mani</div>
+    </div>
+
+    <!-- ── RSVP ── -->
+    <div class="rbox">
+      <div class="rh">
+        <div class="rt">RSVP</div>
+        <div class="rb">Required</div>
+      </div>
+
+      <div id="rsvp-form">
+        <div class="field-wrap">
+          <label class="field-lbl">Your Name</label>
+          <input type="text" id="f-name" placeholder="Enter your name" />
+          <span class="field-err" id="err-name">Please enter your name</span>
+        </div>
+        <div class="field-wrap">
+          <label class="field-lbl">Number of Guests</label>
+          <div class="stepper">
+            <button type="button" class="step-btn" onclick="changeGuests(-1)">−</button>
+            <span id="guest-count">1</span>
+            <button type="button" class="step-btn" onclick="changeGuests(1)">+</button>
+          </div>
+        </div>
+        <div class="field-wrap">
+          <label class="field-lbl">Will you attend?</label>
+          <div class="attend-grid">
+            <button type="button" class="att-btn" id="att-yes" onclick="selectAtt('yes')">Yes! ✨</button>
+            <button type="button" class="att-btn" id="att-maybe" onclick="selectAtt('maybe')">Maybe</button>
+            <button type="button" class="att-btn att-no" id="att-no" onclick="selectAtt('no')">Can't make it</button>
+          </div>
+          <span class="field-err" id="err-att">Please select an option</span>
+        </div>
+        <button class="wa-btn" type="button" onclick="submitRSVP()">
+          RSVP via WhatsApp
+        </button>
+      </div>
+
+      <div id="rsvp-conf" style="display:none;text-align:center;padding:1rem 0;">
+        <div style="font-size:40px;margin-bottom:8px;">🪄</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:20px;color:#003366;" id="conf-title"></div>
+        <button onclick="location.reload()" style="margin-top:15px; background:none; border:1px solid #003366; padding:5px 15px; border-radius:20px; font-family:'Fredoka One',cursive; font-size:10px; cursor:pointer;">Edit RSVP</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="ft">Laughter is timeless, dreams are forever</div>
+  </div>
+</div>
+
+<script>
+var guests=1, attend='';
+function changeGuests(d){
+  guests=Math.max(1,Math.min(10,guests+d));
+  document.getElementById('guest-count').textContent=guests;
+}
+function selectAtt(v){
+  attend=v;
+  ['yes','maybe','no'].forEach(function(a){
+    document.getElementById('att-'+a).classList.remove('selected','selected-no');
+  });
+  var btn=document.getElementById('att-'+v);
+  if(v==='no') btn.classList.add('selected-no'); else btn.classList.add('selected');
+  document.getElementById('err-att').classList.remove('show');
+}
+function submitRSVP(){
+  var name = document.getElementById('f-name').value.trim();
+  var isValid = true;
+  if(!name){document.getElementById('err-name').classList.add('show'); isValid=false;}
+  if(!attend){document.getElementById('err-att').classList.add('show'); isValid=false;}
+  if(!isValid) return;
+
+  var status = attend==='yes'?'is coming!':(attend==='maybe'?'might come.':'cannot make it.');
+  var msg = "Hi! Magic RSVP for Advik's 1-Month:\nName: "+name+"\nStatus: "+status+"\nGuests: "+(attend==='no'?'0':guests);
+  
+  window.open("https://wa.me/642102557754?text="+encodeURIComponent(msg), '_blank');
+  
+  document.getElementById('rsvp-form').style.display='none';
+  document.getElementById('rsvp-conf').style.display='block';
+  document.getElementById('conf-title').textContent = (attend==='no') ? "Thanks for letting us know!" : "See you at the castle!";
+}
+</script>
+
+</body>
+</html>
